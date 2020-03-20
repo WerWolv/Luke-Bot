@@ -9,6 +9,8 @@ import io
 from typing import Optional
 import json
 from datetime import timezone
+import math
+import time
 
 class Mod(Cog):
     def __init__(self, bot):
@@ -491,6 +493,26 @@ class Mod(Cog):
 
         file = discord.File(io.BytesIO(dms.encode('utf-8')), filename = f'{user_id}.json')
         await ctx.send(file = file)
+
+    @commands.guild_only()
+    @commands.check(check_if_staff)
+    @commands.command()
+    async def notification(self, ctx : discord.ext.commands.Context, *,data : str):
+        notificationData = None
+        with open(config.notifications_file, "r") as notificationFile:
+            notificationData = json.loads(notificationFile.read())
+            
+            newData = data.split("##")
+            print(data)
+            if len(newData) != 3:
+                return await ctx.send("Not correct number of arguments. Format: `Title##Description##Icon`")
+
+            notificationData["notifications"].append({ "title" : newData[0], "description" : newData[1], "icon" : newData[2], "date" : math.floor(time.time()) })
+
+        with open(config.notifications_file, "w") as notificationFile:
+            notificationFile.write(json.dumps(notificationData))
+
+        return await ctx.send("Notification posted!")
 
 def setup(bot):
     bot.add_cog(Mod(bot))

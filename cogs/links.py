@@ -11,16 +11,6 @@ class Links(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(hidden=True)
-    async def pegaswitch(self, ctx):
-        """Link to the Pegaswitch repo"""
-        await ctx.send("https://github.com/reswitched/pegaswitch")
-
-    @commands.command(hidden=True, aliases=["atmos"])
-    async def atmosphere(self, ctx):
-        """Link to the Atmosphere repo"""
-        await ctx.send("https://github.com/atmosphere-nx/atmosphere")
-
     @commands.command(hidden=True, aliases=["xyproblem"])
     async def xy(self, ctx):
         """Link to the "What is the XY problem?" post from SE"""
@@ -68,23 +58,37 @@ class Links(Cog):
     @commands.command(hidden=True, aliases=["patron"])
     async def patreon(self, ctx):
         """Link to the patreon"""
-        await ctx.send("https://patreon.teamatlasnx.com")    
-
-    @commands.command(hidden=True, aliases=["sdfiles"])
-    async def kosmos(self, ctx):
-        """Link to the latest Kosmos release"""
-        await ctx.send("https://github.com/AtlasNX/Kosmos/releases/latest")
-
-    @commands.command(hidden=True, aliases=["sd"])
-    async def sdsetup(self, ctx):
-        """Link to SD Setup"""
-        await ctx.send("https://sdsetup.com")
+        await ctx.send("https://www.patreon.com/werwolv")    
 
     @commands.command()
     async def source(self, ctx):
         """Gives link to source code."""
         await ctx.send(f"You can find my source at {config.source_url}. "
                        "Serious PRs and issues welcome!")
+
+    @commands.command(aliases=['edz'])
+    async def edizon(self, ctx):
+        embed = discord.Embed(colour=discord.Colour(0xf5a623))
+
+        embed.set_author(name="Links", url="http://werwolv.net", icon_url="https://raw.githubusercontent.com/WerWolv/EdiZon/master/icon.jpg")
+
+        embed.add_field(name="__EdiZon Release__", value="**NRO:** https://github.com/WerWolv/EdiZon/releases/latest\n**Cheats/Configs:** http://werwolv.net/api/edizon/v2/build.zip")
+        embed.add_field(name="__EdiZon Nightly__", value="**NRO:** https://github.com/WerWolv/EdiZon/releases/tag/snapshot\n**Cheats/Configs:** http://werwolv.net/api/edizon/v3/build.zip")
+        embed.add_field(name="__GitHub repos__", value="**EdiZon:** https://github.com/WerWolv/EdiZon\n**Database:** https://github.com/WerWolv/EdiZon_CheatsConfigsAndScripts")
+
+        await ctx.send(embed=embed)
+
+    @commands.command(aliases=['tsl'])
+    async def tesla(self, ctx):
+        embed = discord.Embed(colour=discord.Colour(0x017fca))
+
+        embed.set_author(name="Tesla Links", url="https://gbatemp.net/threads/tesla-the-nintendo-switch-overlay-menu.557362/", icon_url="https://media.discordapp.net/attachments/553529173420015619/673618681263292426/tesla_experimentLogo.png")
+
+        embed.add_field(name="__nx-ovlloader__", value="**Download:** https://github.com/WerWolv/nx-ovlloader/releases/latest")
+        embed.add_field(name="__Tesla Menu__", value="**Download:** https://github.com/WerWolv/Tesla-Menu/releases/latest")
+        embed.add_field(name="__libtesla__", value="**Download:** https://github.com/WerWolv/libtesla/releases/latest")
+
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Links(bot))

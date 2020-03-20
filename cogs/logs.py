@@ -205,8 +205,6 @@ class Logs(Cog):
     @Cog.listener()
     async def on_message_delete(self, message):
         await self.bot.wait_until_ready()
-        if message.channel.id not in config.spy_channels:
-            return
 
         log_channel = self.bot.get_channel(config.log_channel)
         msg = "🗑️ **Message delete**: \n"\

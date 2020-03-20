@@ -53,12 +53,7 @@ initial_extensions = ['cogs.common',
                       'cogs.mod_watch',
                       'cogs.basic',
                       'cogs.logs',
-                      'cogs.lockdown',
-                      'cogs.legacy',
                       'cogs.links',
-                      'cogs.lists',
-                      'cogs.remind',
-                      'cogs.robocronp',
                       'cogs.meme']
 
 bot = commands.Bot(command_prefix=get_prefix,
