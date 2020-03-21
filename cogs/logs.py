@@ -171,16 +171,12 @@ class Logs(Cog):
     @Cog.listener()
     async def on_message(self, message):
         await self.bot.wait_until_ready()
-        if message.channel.id not in config.spy_channels:
-            return
 
         await self.do_spy(message)
 
     @Cog.listener()
     async def on_message_edit(self, before, after):
         await self.bot.wait_until_ready()
-        if after.channel.id not in config.spy_channels:
-            return
 
         # If content is the same, just skip over it
         # This usually means that something embedded.
