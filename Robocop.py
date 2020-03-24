@@ -46,15 +46,10 @@ wanted_jsons = ["data/restrictions.json",
 initial_extensions = ['cogs.common',
                       'cogs.admin',
                       'cogs.mod',
-                      'cogs.mod_note',
-                      'cogs.mod_reacts',
                       'cogs.mod_userlog',
-                      'cogs.mod_timed',
-                      'cogs.mod_watch',
                       'cogs.basic',
                       'cogs.logs',
-                      'cogs.links',
-                      'cogs.meme']
+                      'cogs.links']
 
 bot = commands.Bot(command_prefix=get_prefix,
                    description=config.bot_description, pm_help=True)
