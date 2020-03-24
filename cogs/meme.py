@@ -171,7 +171,7 @@ class Meme(Cog):
             if char != " ":
                 caps = not caps
 
-        text += " <:spongebob:686908029874077716>"
+        text += " <:spongebob:692122703095660624>"
 
         await ctx.message.delete()
         await ctx.send(text)
