@@ -75,6 +75,7 @@ class Links(Cog):
         embed.add_field(name="__EdiZon Release__", value="**NRO:** https://github.com/WerWolv/EdiZon/releases/latest\n**Cheats/Configs:** http://werwolv.net/api/edizon/v2/build.zip")
         embed.add_field(name="__EdiZon Nightly__", value="**NRO:** https://github.com/WerWolv/EdiZon/releases/tag/snapshot\n**Cheats/Configs:** http://werwolv.net/api/edizon/v3/build.zip")
         embed.add_field(name="__GitHub repos__", value="**EdiZon:** https://github.com/WerWolv/EdiZon\n**Database:** https://github.com/WerWolv/EdiZon_CheatsConfigsAndScripts")
+        embed.add_field(name="__Edizon Overlay__", value="**Download:** http://werwolv.net/downloads/EdiZonOverlay.zip")
 
         await ctx.send(embed=embed)
 
